@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from .models import Project
 
-# Create your views here.
+def lista_projetos(request):
+    projetos = Project.objects.all()
+
+    contexto = {
+        'lista_de_projetos': projetos
+    }
+
+    return render(request, 'projects/project_list.html', contexto)

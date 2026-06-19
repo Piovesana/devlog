@@ -1,0 +1,35 @@
+{% load static %}<!DOCTYPE html>
+<html lang ="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.o">
+    <title>Meus Projetos - DevLog</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"
+</head>
+<body>
+
+    <header>
+        <h1> Meu DevLog</h1>
+        <p>Gerenciador Pessoal de Estudos e Projetos</p>
+    </header>
+
+    <main>
+        <h2>Lista de Projetos</h2>
+        
+        {% for projeto in lista_de_projetos %}
+            <div class = "card-projeto">
+                <h3> {{projeto.titulo}}</h3> <p>{{ projeto.descricao }}</p>
+                <small> Iniciado em: {{ projeto.data_inicio|date:"d/m/Y" }} </small>
+            </div>
+        {% empty %}
+            <p>Nenhum projeto cadastrado ainda. Va ao painel /admin para criar um!</p>
+        {% endfor %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Desenvolvido por um futuro Engenheiro de Sofware</p>
+        
+    </footer>
+</body>
+</html>
