@@ -15,7 +15,10 @@
     </header>
 
     <main>
-        <h2>Lista de Projetos</h2>
+        <div class="topo-lista">
+            <h2>Lista de Projetos</h2>
+            <a href = "{% url 'criar_projeto' %}" class="btn-novo">Add Novo Projeto</a> 
+        </div>
         
         {% for projeto in lista_de_projetos %}
             <div class = "card-projeto">

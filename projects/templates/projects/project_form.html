@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Projeto - DevLog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>🚀 Criar Novo Projeto</h1>
+        <p>Adicione um novo objetivo de estudo ao seu DevLog</p>
+    </header>
+
+    <main>
+        <form method ="POST" class="form-container">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <div class="form-botoes">
+               <button type="submit" class="btn-salvar">Salvar Projeto</button>
+               <a href="{% url 'lista_projetos' %}" class="btn-cancelar">Cancelar</a>            </div>
+        </form>
+    </main>
+</body>
+</html>
